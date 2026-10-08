@@ -1,0 +1,140 @@
+[
+  {
+    "name": "payment-service",
+    "description": "Internal payment-service workload",
+    "owner": {
+      "team": "payments-platform",
+      "contact": "payments-platform@example.internal"
+    },
+    "runtime": {
+      "language": "Python",
+      "version": "3.12"
+    },
+    "tier": "critical",
+    "tags": [
+      "payments"
+    ],
+    "updated_at": "2026-10-08T04:00:00Z",
+    "environments": [
+      {
+        "name": "prod",
+        "current_version": "2026.10.08-rc2",
+        "region": "cn-east-1",
+        "replicas": 4,
+        "metadata": {
+          "last_deploy": "2026-10-08T03:55:00Z",
+          "runbook": "https://runbooks.example.internal/payments/5xx"
+        },
+        "dependencies": [
+          {
+            "name": "payment-db",
+            "kind": "database",
+            "critical": true,
+            "purpose": "Request processing dependency"
+          },
+          {
+            "name": "ledger-service",
+            "kind": "service",
+            "critical": true,
+            "purpose": "Request processing dependency"
+          },
+          {
+            "name": "risk-service",
+            "kind": "service",
+            "critical": true,
+            "purpose": "Request processing dependency"
+          }
+        ]
+      },
+      {
+        "name": "staging",
+        "current_version": "2026.10.08-rc3",
+        "region": "cn-east-1",
+        "replicas": 1,
+        "metadata": {},
+        "dependencies": [
+          {
+            "name": "payment-db-staging",
+            "kind": "database",
+            "critical": true,
+            "purpose": "Request processing dependency"
+          },
+          {
+            "name": "ledger-service",
+            "kind": "service",
+            "critical": true,
+            "purpose": "Request processing dependency"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "ledger-service",
+    "description": "Internal ledger-service workload",
+    "owner": {
+      "team": "accounting-platform",
+      "contact": "accounting-platform@example.internal"
+    },
+    "runtime": {
+      "language": "Java",
+      "version": "21"
+    },
+    "tier": "standard",
+    "tags": [
+      "backend"
+    ],
+    "updated_at": "2026-10-08T04:00:00Z",
+    "environments": [
+      {
+        "name": "prod",
+        "current_version": "2026.10.01.1",
+        "region": "cn-east-1",
+        "replicas": 3,
+        "metadata": {},
+        "dependencies": [
+          {
+            "name": "ledger-db",
+            "kind": "database",
+            "critical": true,
+            "purpose": "Request processing dependency"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "risk-service",
+    "description": "Internal risk-service workload",
+    "owner": {
+      "team": "risk-platform",
+      "contact": "risk-platform@example.internal"
+    },
+    "runtime": {
+      "language": "Go",
+      "version": "1.23"
+    },
+    "tier": "standard",
+    "tags": [
+      "backend"
+    ],
+    "updated_at": "2026-10-08T04:00:00Z",
+    "environments": [
+      {
+        "name": "prod",
+        "current_version": "2026.10.06.2",
+        "region": "cn-east-1",
+        "replicas": 2,
+        "metadata": {},
+        "dependencies": [
+          {
+            "name": "risk-db",
+            "kind": "database",
+            "critical": true,
+            "purpose": "Request processing dependency"
+          }
+        ]
+      }
+    ]
+  }
+]

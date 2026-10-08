@@ -1,0 +1,10 @@
+[
+  {"id":"p001","service":"payment-service","environment":"prod","timestamp":"2026-10-08T03:55:00Z","level":"INFO","message":"Deployment started version=2026.10.08-rc2","attributes":{"pod":"payment-1"}},
+  {"id":"p002","service":"payment-service","environment":"prod","timestamp":"2026-10-08T04:01:00Z","level":"WARNING","message":"Database connection pool wait exceeded 2000ms active=20 max=20","attributes":{"dependency":"payment-db"}},
+  {"id":"p003","service":"payment-service","environment":"prod","timestamp":"2026-10-08T04:02:00Z","level":"ERROR","message":"HTTP 500 POST /payments: database connection acquisition timeout","attributes":{"trace_id":"sample-a01","dependency":"payment-db"}},
+  {"id":"p004","service":"payment-service","environment":"prod","timestamp":"2026-10-08T04:03:00Z","level":"ERROR","message":"HTTP 503 POST /payments: pool exhausted; wait queue=81","attributes":{"trace_id":"sample-a02","dependency":"payment-db"}},
+  {"id":"p005","service":"payment-service","environment":"prod","timestamp":"2026-10-08T04:04:00Z","level":"INFO","message":"Dependency risk-service health check succeeded latency_ms=14","attributes":{}},
+  {"id":"p006","service":"payment-service","environment":"prod","timestamp":"2026-10-08T04:06:00Z","level":"ERROR","message":"HTTP 500 GET /payments/status: database timeout","attributes":{"pod":"payment-2"}},
+  {"id":"s001","service":"payment-service","environment":"staging","timestamp":"2026-10-08T04:02:00Z","level":"INFO","message":"HTTP 200 POST /payments","attributes":{}},
+  {"id":"l001","service":"ledger-service","environment":"prod","timestamp":"2026-10-08T04:02:00Z","level":"INFO","message":"HTTP 200 GET /ledger health check succeeded","attributes":{}}
+]

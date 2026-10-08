@@ -1,0 +1,6 @@
+[
+  {"service":"payment-service","environment":"prod","owner":"payments-platform","language":"Python 3.12","dependencies":["payment-db","ledger-service","risk-service"],"deploy_version":"2026.10.08-rc2","metadata":{"region":"cn-east-1","replicas":"4","last_deploy":"2026-10-08T03:55:00Z","runbook":"https://runbooks.example.internal/payments/5xx"}},
+  {"service":"payment-service","environment":"staging","owner":"payments-platform","language":"Python 3.12","dependencies":["payment-db-staging","ledger-service"],"deploy_version":"2026.10.08-rc3","metadata":{"region":"cn-east-1","replicas":"1"}},
+  {"service":"ledger-service","environment":"prod","owner":"accounting-platform","language":"Java 21","dependencies":["ledger-db"],"deploy_version":"2026.10.01.1","metadata":{"region":"cn-east-1","replicas":"3"}},
+  {"service":"risk-service","environment":"prod","owner":"risk-platform","language":"Go 1.23","dependencies":["risk-db"],"deploy_version":"2026.10.06.2","metadata":{"region":"cn-east-1","replicas":"2"}}
+]
